@@ -1,0 +1,46 @@
+version: "3"
+
+x-base-app-conf: &base_app_conf
+  env_file: .env
+  stdin_open: true
+  tty: true
+
+services:
+  # Run FastAPI application
+  fasthtmx_app:
+    <<: *base_app_conf
+    image: fasthtmx_app:latest
+    container_name: fasthtmx_app
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./app:/src/app"
+
+  # Generating CSS output file for Tailwind CSS on save
+  fasthtmx-npm-watch:
+    <<: *base_app_conf
+    image: fasthtmx_app:latest
+    container_name: fasthtmx-npm-watch
+    working_dir: /src
+    command: npm run watch:tailwindcss
+    restart: always
+    volumes:
+      - "./app:/src/app"
+    depends_on:
+      - fasthtmx_app
+  # Copying JS file from htmx package
+  fasthtmx-htmx-js-generator:
+    <<: *base_app_conf
+    image: fasthtmx_app:latest
+    container_name: fasthtmx-htmx-js-generator
+    working_dir: /src
+    command: npm run build:htmx
+    restart: no
+    volumes:
+      - "./app:/src/app"
+    depends_on:
+      - fasthtmx_app

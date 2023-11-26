@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="htmx-config" content='{"includeIndicatorStyles": false}'>
+
+        <title>{% block title %}FastHTMX Showcase Web page{% endblock title %}</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', path='css/tailwind-output.css') }}">
+
+        <script src="{{ url_for('static', path='js/htmx.min.js') }}"></script>
+
+        {% block head_extra %}{% endblock head_extra %}
+    </head>
+    <body>
+        {% block content %}{% endblock content %}
+    </body>
+</html>
