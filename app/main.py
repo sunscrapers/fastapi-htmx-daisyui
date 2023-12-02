@@ -19,9 +19,12 @@ def get_application() -> FastAPI:
         allow_headers=["*"],
     )
     # CSRF protection
+    # For production usage consider more strict configuration
     application.add_middleware(
         CSRFMiddleware,
         secret=config.SECRET_KEY,
+        cookie_name="fastcsrftoken",
+        header_name="x-fastcsrftoken",
     )
 
     application.include_router(main_router)

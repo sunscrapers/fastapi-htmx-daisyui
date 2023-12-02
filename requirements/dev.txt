@@ -84,6 +84,8 @@ pytest==7.4.3
     # via -r requirements/dev.in
 python-dotenv==1.0.0
     # via uvicorn
+python-multipart==0.0.6
+    # via -r requirements/base.in
 pyyaml==6.0.1
     # via uvicorn
 six==1.16.0

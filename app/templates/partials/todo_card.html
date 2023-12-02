@@ -1,0 +1,24 @@
+<div id="todo-card" class="card card-compact mb-3 bg-base-100 shadow-md">
+  <div class="card-body">
+    <div class="card-title">
+      <div class="float-left w-11/12">
+        {{ item.value }}
+      </div>
+      <form
+        hx-post="{{ request.url_for('todo_remove') }}"
+        hx-swap="innerHTML"
+        hx-target="#todo-card-list"
+        hx-select="#todo-card"
+        hx-encoding="multipart/form-data"
+        class="float-right text-center items-center w-1/12"
+      >
+        <input name="item_id" type="hidden" value="{{ item.id }}"/>
+        <button type="submit">
+          <svg class="h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
