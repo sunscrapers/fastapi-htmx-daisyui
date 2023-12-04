@@ -54,15 +54,6 @@ To run tests (ensure the application is running first):
 make tests
 ```
 
-### Pre-commit Hooks
-
-The project uses pre-commit with the following hooks:
-
-- `autoflake`: Removes unused imports and variables.
-- `flake8`: Checks for PEP 8 compliance and code style.
-- `isort`: Sorts import statements.
-- `black`: Formats code using the Black code formatter.
-
 ### Makefile Commands
 
 - `update-deps`: Update project dependencies.
@@ -73,5 +64,22 @@ The project uses pre-commit with the following hooks:
 - `bash`: Open a bash shell in the running application container.
 - `run-build`: Build and run the application without using Docker Compose.
 - `run`: Run the application in a Docker container.
+
+### Pre-commit Hooks
+
+The project uses pre-commit with the following hooks:
+
+- `autoflake`: Removes unused imports and variables.
+- `flake8`: Checks for PEP 8 compliance and code style.
+- `isort`: Sorts import statements.
+- `black`: Formats code using the Black code formatter.
+
+### Security
+
+`CORS Protection`:
+Cross-Origin Resource Sharing (CORS) is a security feature that controls which web domains are permitted to access resources from your web application, preventing unauthorized cross-origin requests.
+
+`CSRF Protection`:
+Cross-Site Request Forgery (CSRF) protection involves implementing measures, such as using tokens in forms, to validate that requests made to your application originate from trusted sources, mitigating the risk of unauthorized actions initiated by malicious actors.
 
 Feel free to explore and modify the project to suit your needs!
