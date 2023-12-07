@@ -64,6 +64,7 @@ make tests
 - `bash`: Open a bash shell in the running application container.
 - `run-build`: Build and run the application without using Docker Compose.
 - `run`: Run the application in a Docker container.
+- `run-tests`: Run tests in a Docker container.
 
 ### Pre-commit Hooks
 
