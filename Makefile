@@ -1,4 +1,4 @@
-.PHONY: update-deps build up down attach bash run-build run tests
+.PHONY: update-deps build up down attach bash run-build run run-tests tests
 update-deps:
 	pip install -U pip && pip install pip-tools
 
@@ -28,6 +28,9 @@ run-build:
 
 run:
 	docker run --name fasthtmx_app -p 8000:8000 --rm --env-file .env -it fasthtmx_app:latest
+
+run-tests:
+	docker run --name fasthtmx_app -p 8000:8000 --rm --env-file .env -it fasthtmx_app:latest python -m pytest app -s --verbose
 
 tests:
 	docker exec -it fasthtmx_app python -m pytest app -s --verbose
