@@ -1,0 +1,30 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="grid w-full place-items-center min-h-screen">
+  <div class="artboard artboard-demo phone-2 justify-start relative">
+    <div class="w-11/12 my-8">
+      <h1 class="text-5xl font-bold text-center">Todo App</h1>
+    </div>
+    <form
+      hx-post="{{ request.url_for('todo_add') }}"
+      hx-swap="innerHTML"
+      hx-target="#todo-card-list"
+      hx-select="#todo-card"
+      hx-encoding="multipart/form-data"
+      hx-on::after-request="this.reset()"
+      class="flex w-11/12 my-5"
+    >
+      <input
+        type="text"
+        name="value"
+        placeholder="Add your new todo"
+        autocomplete="off"
+        class="flex-initial w-10/12 input input-bordered mr-4 shadow-md"
+      />
+      <button class="flex-initial w-2/12 btn shadow-md" type="submit">Add</button>
+    </form>
+    {% include "partials/todo_card_list.html" %}
+    {% include "partials/form_clear_all.html" %}
+  </div>
+</div>
+{% endblock content %}

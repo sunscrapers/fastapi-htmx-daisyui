@@ -1,0 +1,24 @@
+<div
+  id="todo-card-list"
+  hx-get="{{ request.url_for('todo_list') }}"
+  hx-trigger="load"
+  hx-swap="innerHTML"
+  hx-select="#todo-card"
+  class="overflow-scroll w-11/12 h-3/5"
+>
+  {% if not todo_items and not should_hide_loader %}
+    <div class="flex h-full items-center justify-center">
+      <span class="loading loading-spinner loading-lg"></span>
+    </div>
+  {% elif not todo_items %}
+    <div id="todo-card" class="flex h-full items-center justify-center">
+      <p>No tasks to do! 🎉</p>
+    </div>
+  {% else %}
+    {% for item in todo_items %}
+      {% include "partials/todo_card.html" %}
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% include "partials/form_clear_all.html" %}

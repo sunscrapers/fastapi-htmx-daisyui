@@ -1,0 +1,13 @@
+<form
+  id="clear-all-form"
+  hx-post="{{ request.url_for('todo_clear') }}"
+  hx-swap="innerHTML"
+  hx-target="#todo-card-list"
+  hx-select="#todo-card"
+  hx-encoding="multipart/form-data"
+  hx-confirm="Are you sure?"
+  hx-swap-oob="true"
+  class="w-11/12 text-center my-5 absolute bottom-0 right-5"
+>
+  <button class="btn shadow-md" type="submit" {% if not todo_items %}disabled="disabled"{% endif %}>Clear All</button>
+</form>
