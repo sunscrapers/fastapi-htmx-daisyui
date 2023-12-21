@@ -2,7 +2,6 @@
 fastapi==0.104.1
 python-multipart==0.0.6
 uvicorn[standard]==0.24.0
-starlette-csrf==3.0.0
 httpx==0.25.2
 
 # Templates

@@ -15,20 +15,9 @@ def app() -> FastAPI:
     return get_application()
 
 
-@pytest.fixture
-def csrftoken():
-    return (
-        ".eJwFwe0WQjAAANB36QmsZW0_q6E5sSPVlj8OEfKVIa2n795VzvZL1zpqGybRxKQ5FoflH"
-        "cZoVhqnFLYB043ghtVWhNmXGmQNI_yUdD7WJseGytzNqdKIZ1fLJNCmTrSGw21m9mf0QN2"
-        "LxA2K-Hx_ph5_Fa9BipEus-dY1Y98HKB25WN3kz6IDr-z9CBl135P8zfyhfsFdEp7iGtVH"
-        "g2IIrz6A5_7OQY.6lMN1TAYgTA5y_ZgLL0b4wpQFFA"
-    )
-
-
 @pytest.fixture()
-def client(app, csrftoken):
+def client(app):
     with TestClient(app) as test_client:
-        test_client.cookies.set("fastcsrftoken", csrftoken)
         yield test_client
 
 

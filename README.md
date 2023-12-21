@@ -4,22 +4,24 @@
 
 This project is a simple showcase of a TODO App implemented using FastAPI, HTMX, Jinja2 with DaisyUI, and Tailwind CSS. The goal is to demonstrate the efficiency and synergy of these technologies in a web application.
 
+![TODO App preview](screenshots/todo_app.png)
+
 ### Technologies Used
 
 1. **FastAPI**
 
-   - FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7+ based on standard Python type hints.
+   - FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.8+ based on standard Python type hints.
 
 2. **HTMX**
 
    - HTMX is a lightweight JavaScript library for creating dynamic, seamless user interfaces. It allows for updating parts of a webpage using AJAX requests, providing a smooth user experience.
 
-3. **Jinja2 with DaisyUI**
+3. **Jinja2**
 
-   - Jinja2 is a template engine for Python. DaisyUI is an extension that enhances Jinja2 templates with additional features.
+   - Jinja2 is a template engine for Python that simplifies the process of integrating dynamic content into web applications. It enables the creation of dynamic templates, allowing developers to seamlessly blend Python logic with HTML for efficient and maintainable code.
 
-4. **Tailwind CSS**
-   - Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build designs directly in your markup.
+4. **Tailwind CSS with DaisyUI**
+   - Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build designs directly in your markup. DaisyUI, as an extension to Tailwind CSS, enriches the framework with additional components and features, offering a comprehensive toolkit for crafting modern and responsive user interfaces with ease.
 
 ### Features
 
@@ -79,8 +81,5 @@ The project uses pre-commit with the following hooks:
 
 `CORS Protection`:
 Cross-Origin Resource Sharing (CORS) is a security feature that controls which web domains are permitted to access resources from your web application, preventing unauthorized cross-origin requests.
-
-`CSRF Protection`:
-Cross-Site Request Forgery (CSRF) protection involves implementing measures, such as using tokens in forms, to validate that requests made to your application originate from trusted sources, mitigating the risk of unauthorized actions initiated by malicious actors.
 
 Feel free to explore and modify the project to suit your needs!

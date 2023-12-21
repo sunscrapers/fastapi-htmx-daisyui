@@ -14,7 +14,7 @@
 
     {% block head_extra %}{% endblock head_extra %}
   </head>
-  <body hx-headers='{"x-fastcsrftoken": "{{ request.cookies.fastcsrftoken }}"}'>
+  <body>
     {% block content %}{% endblock content %}
   </body>
 </html>

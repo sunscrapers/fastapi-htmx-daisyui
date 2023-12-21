@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
-from starlette_csrf import CSRFMiddleware
 
 from app.core import config
 from app.routes import main_router
@@ -17,14 +16,6 @@ def get_application() -> FastAPI:
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
-    )
-    # CSRF protection
-    # For production usage consider more strict configuration
-    application.add_middleware(
-        CSRFMiddleware,
-        secret=config.SECRET_KEY,
-        cookie_name="fastcsrftoken",
-        header_name="x-fastcsrftoken",
     )
 
     application.include_router(main_router)
