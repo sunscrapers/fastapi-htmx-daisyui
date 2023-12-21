@@ -21,28 +21,10 @@ def test_todo_list(client):
     assert "Task2" in response.text
 
 
-def test_todo_add(client, db, csrftoken):
-    # No CSRFToken generated and set
-    client.cookies.pop("fastcsrftoken")
-    response = client.post("/todo/add", data={"value": "New Todo Item"})
-    assert response.status_code == 403
-    assert len(db.get_todo_items()) == 2
-
-    # CSRFToken mismatch
-    client.cookies.set("fastcsrftoken", csrftoken)
+def test_todo_add(client, db):
     response = client.post(
         "/todo/add",
         data={"value": "New Todo Item"},
-        headers={"x-fastcsrftoken": "123"},
-    )
-    assert response.status_code == 403
-    assert len(db.get_todo_items()) == 2
-
-    # CSRFToken correct
-    response = client.post(
-        "/todo/add",
-        data={"value": "New Todo Item"},
-        headers={"x-fastcsrftoken": csrftoken},
     )
     assert response.status_code == 200
     assert "text/html" in response.headers["content-type"]
@@ -53,14 +35,13 @@ def test_todo_add(client, db, csrftoken):
     assert "New Todo Item" in response.text
 
 
-def test_todo_remove(client, db, csrftoken):
+def test_todo_remove(client, db):
     todo_items: List[TodoItem] = db.get_todo_items()
     assert len(todo_items) == 2
 
     response = client.post(
         "/todo/remove",
         data={"item_id": str(todo_items[0].id)},
-        headers={"x-fastcsrftoken": csrftoken},
     )
 
     assert response.status_code == 200
@@ -70,13 +51,10 @@ def test_todo_remove(client, db, csrftoken):
     assert "Task2" in response.text
 
 
-def test_todo_clear(client, db, csrftoken):
+def test_todo_clear(client, db):
     assert len(db.get_todo_items()) == 2
 
-    response = client.post(
-        "/todo/clear",
-        headers={"x-fastcsrftoken": csrftoken},
-    )
+    response = client.post("/todo/clear")
 
     assert response.status_code == 200
     assert "text/html" in response.headers["content-type"]

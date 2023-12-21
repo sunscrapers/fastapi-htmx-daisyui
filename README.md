@@ -82,7 +82,4 @@ The project uses pre-commit with the following hooks:
 `CORS Protection`:
 Cross-Origin Resource Sharing (CORS) is a security feature that controls which web domains are permitted to access resources from your web application, preventing unauthorized cross-origin requests.
 
-`CSRF Protection`:
-Cross-Site Request Forgery (CSRF) protection involves implementing measures, such as using tokens in forms, to validate that requests made to your application originate from trusted sources, mitigating the risk of unauthorized actions initiated by malicious actors.
-
 Feel free to explore and modify the project to suit your needs!

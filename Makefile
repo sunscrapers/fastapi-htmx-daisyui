@@ -35,4 +35,4 @@ run-tests:
 	docker run --name fasthtmx_app -p 8000:8000 --rm --env-file .env -it fasthtmx_app:latest python -m pytest app -s --verbose
 
 tests:
-	docker exec -it fasthtmx_app python -m pytest app -s --verbose
+	docker exec -it fasthtmx_app python -m pytest app/tests -s --verbose
