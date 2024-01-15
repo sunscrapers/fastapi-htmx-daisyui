@@ -4,6 +4,8 @@
 #
 #    pip-compile requirements/base.in
 #
+alembic==1.13.1
+    # via -r requirements/base.in
 annotated-types==0.6.0
     # via pydantic
 anyio==3.7.1
@@ -12,14 +14,22 @@ anyio==3.7.1
     #   httpx
     #   starlette
     #   watchfiles
+async-timeout==4.0.3
+    # via asyncpg
+asyncpg==0.29.0
+    # via -r requirements/base.in
 certifi==2023.11.17
     # via
     #   httpcore
     #   httpx
 click==8.1.7
     # via uvicorn
+faker==22.0.0
+    # via -r requirements/base.in
 fastapi==0.104.1
     # via -r requirements/base.in
+greenlet==3.0.3
+    # via sqlalchemy
 h11==0.14.0
     # via
     #   httpcore
@@ -36,29 +46,46 @@ idna==3.5
     #   httpx
 jinja2==3.1.2
     # via -r requirements/base.in
+mako==1.3.0
+    # via alembic
 markupsafe==2.1.3
-    # via jinja2
+    # via
+    #   jinja2
+    #   mako
+psycopg2-binary==2.9.9
+    # via -r requirements/base.in
 pydantic==2.5.2
     # via fastapi
 pydantic-core==2.14.5
     # via pydantic
+python-dateutil==2.8.2
+    # via faker
 python-dotenv==1.0.0
     # via uvicorn
 python-multipart==0.0.6
     # via -r requirements/base.in
 pyyaml==6.0.1
     # via uvicorn
+six==1.16.0
+    # via python-dateutil
 sniffio==1.3.0
     # via
     #   anyio
     #   httpx
+sqlalchemy[asyncio]==2.0.25
+    # via
+    #   -r requirements/base.in
+    #   alembic
+    #   sqlalchemy
 starlette==0.27.0
     # via fastapi
 typing-extensions==4.8.0
     # via
+    #   alembic
     #   fastapi
     #   pydantic
     #   pydantic-core
+    #   sqlalchemy
 uvicorn[standard]==0.24.0
     # via
     #   -r requirements/base.in

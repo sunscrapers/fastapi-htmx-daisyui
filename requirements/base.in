@@ -6,3 +6,12 @@ httpx==0.25.2
 
 # Templates
 Jinja2==3.1.2
+
+# Database
+SQLAlchemy[asyncio]==2.0.25
+alembic==1.13.1
+psycopg2-binary==2.9.9
+asyncpg==0.29.0
+
+# Other
+Faker==22.0.0

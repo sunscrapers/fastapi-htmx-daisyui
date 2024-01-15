@@ -1,4 +1,6 @@
-FROM python:3.11.5-slim
+FROM python:3.11.7-slim
+
+ENV PYTHONPATH=/src
 
 # Install Node.js
 RUN apt update && apt install -y nodejs npm

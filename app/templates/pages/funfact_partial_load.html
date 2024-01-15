@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+
+{% include "partials/funfact_header.html" %}
+
+<section
+  hx-get="{{ request.url_for('fun_fact_partial_load_data') }}"
+  hx-swap="outerHTML"
+  hx-trigger="load"
+  class="bg-white border-b py-12"
+>
+  <div class="container mx-auto flex flex-wrap items-center justify-center pb-12">
+    <div class="flex flex-1 flex-wrap mx-auto justify-center text-xl font-bold opacity-75">
+      <span class="loading loading-spinner loading-lg"></span>
+    </div>
+  </div>
+</section>
+
+{% include "partials/funfact_footer.html" %}
+
+{% endblock content %}

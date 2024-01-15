@@ -1,0 +1,25 @@
+<section id="funfacts" class="bg-white border-b py-12">
+  <div class="container mx-auto flex flex-wrap items-center justify-between pb-12">
+    <div class="flex flex-1 flex-wrap mx-auto justify-between text-xl font-bold opacity-75">
+      {% for fun_fact in fun_facts %}
+        <div class="w-1/3 p-4 md:w-auto flex ">
+          <div class="card w-96 bg-base-100 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title">{{ fun_fact.title }}</h2>
+              <p>{{ fun_fact.description }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="container mx-auto flex flex-wrap items-center justify-center pb-12">
+    <form
+      hx-get="{{ request.url_for('fun_fact_partial_load_data') }}"
+      hx-swap="outerHTML"
+      hx-target="#funfacts"
+    >
+      <button class="btn">Get Random Fun Facts</button>
+    </form>
+  </div>
+</section>
