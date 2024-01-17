@@ -5,3 +5,7 @@ pytest-env==1.1.3
 
 ipdb
 ipython
+
+requests
+
+locust

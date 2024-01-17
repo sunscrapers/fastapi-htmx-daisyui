@@ -66,3 +66,9 @@ tests:
 .PHONY: bootstrap
 bootstrap:
 	docker exec -it fasthtmx_app python app/commands/bootstrap.py
+
+perf-tests-full:
+	locust -f performance_tests/locust_full_load_script.py --host=http://localhost:8000
+
+perf-tests-partial:
+	locust -f performance_tests/locust_partial_load_script.py --host=http://localhost:8000

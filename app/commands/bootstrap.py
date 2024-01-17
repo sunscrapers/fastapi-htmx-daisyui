@@ -13,6 +13,7 @@ fake = Faker()
 
 
 async def bootstrap_data(session, num_facts: int = 10):
+    print("Starting creating fake Fun Facts")
     fun_facts: List[dict] = []
 
     counter: int = 0
