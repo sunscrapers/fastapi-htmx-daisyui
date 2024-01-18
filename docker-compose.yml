@@ -60,6 +60,23 @@ services:
     depends_on:
       - db
 
+  # Locust tool for performance tests
+  perf_tests_full:
+    image: locustio/locust
+    ports:
+      - "8089:8089"
+    volumes:
+      - ./:/mnt/locust
+    command: -f /mnt/locust/performance_tests/locust_full_load_script.py -H http://fasthtmx_app:8000
+
+  perf_tests_partial:
+    image: locustio/locust
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./:/mnt/locust
+    command: -f /mnt/locust/performance_tests/locust_partial_load_script.py -H http://fasthtmx_app:8000 --web-port 8090
+
   db:
     image: postgres:16.1-alpine
     command: ["postgres", "-c", "log_statement=all", "-c", "log_destination=stderr"]
