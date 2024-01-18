@@ -4,7 +4,15 @@
 
 This project is a simple showcase of a TODO App implemented using FastAPI, HTMX, Jinja2 with DaisyUI, and Tailwind CSS. The goal is to demonstrate the efficiency and synergy of these technologies in a web application.
 
+Additionally, a fake fun facts generator has been integrated for a playful touch. Access it through the following links:
+
+- Full Load Fun Facts: http://localhost:8000/fun-fact-full-load
+- Partial Load Fun Facts: http://localhost:8000/fun-fact-partial-load
+
 ![TODO App preview](screenshots/todo_app.png)
+![TODO App preview](screenshots/funfact_app.png)
+
+Explore the seamless integration of FastAPI, HTMX, Jinja2, DaisyUI, and Tailwind CSS in this demonstration
 
 ### Technologies Used
 
@@ -29,6 +37,7 @@ This project is a simple showcase of a TODO App implemented using FastAPI, HTMX,
 - Create new TODO items
 - Remove specific TODO items
 - Clear all TODO items
+- Get random fake Fun Facts
 
 ### Development Setup
 
@@ -58,15 +67,22 @@ make tests
 
 ### Makefile Commands
 
-- `update-deps`: Update project dependencies.
+- `update-deps`: Update project dependencies using pip-compile.
 - `build`: Build the Docker image with the application.
 - `up`: Start the application and its dependencies.
 - `down`: Shut down the application.
 - `attach`: Attach to the running application container.
+- `db-migrate`: Generate Alembic database migrations.
+- `db-upgrade`: Apply Alembic database migrations.
+- `db-downgrade`: Roll back Alembic database migrations.
+- `migration-history`: View Alembic migration history.
 - `bash`: Open a bash shell in the running application container.
 - `run-build`: Build and run the application without using Docker Compose.
 - `run`: Run the application in a Docker container.
 - `run-tests`: Run tests in a Docker container.
+- `tests`: Run application tests in the container.
+- `bootstrap`: Execute the bootstrap script in the running application container.
+- `e2e-tests`: Build and run end-to-end tests using a separate Docker container.
 
 ### Pre-commit Hooks
 
@@ -81,5 +97,14 @@ The project uses pre-commit with the following hooks:
 
 `CORS Protection`:
 Cross-Origin Resource Sharing (CORS) is a security feature that controls which web domains are permitted to access resources from your web application, preventing unauthorized cross-origin requests.
+
+### Performance tests
+
+Comprehensive performance tests have been crafted using the Locust tool for our Python project. Docker Compose services `perf_tests_full` and `perf_tests_partial` orchestrate the execution of performance scripts.
+
+- perf_tests_full:
+  - Run a full load tests by visiting http://localhost:8089/.
+- perf_tests_partial:
+  - Run a partial load tests by visiting http://localhost:8090/.
 
 Feel free to explore and modify the project to suit your needs!
