@@ -67,8 +67,16 @@ tests:
 bootstrap:
 	docker exec -it fasthtmx_app python app/commands/bootstrap.py
 
-perf-tests-full:
-	locust -f performance_tests/locust_full_load_script.py --host=http://localhost:8000
+.PHONY: e2e-tests-build
+e2e-tests-build:
+	docker build . -f e2e_tests/Dockerfile -t tests_e2e:latest
 
-perf-tests-partial:
-	locust -f performance_tests/locust_partial_load_script.py --host=http://localhost:8000
+.PHONY: e2e-tests-bash
+e2e-tests-bash:
+	make e2e-tests-build
+	docker run --name tests_e2e --network="host" --rm -it tests_e2e:latest bash
+
+.PHONY: e2e-tests
+e2e-tests:
+	make e2e-tests-build
+	docker run --name tests_e2e --network="host" --rm -it tests_e2e:latest pytest tests -s --base-url http://localhost:8000
