@@ -6,9 +6,11 @@ This project is a simple showcase of a TODO App implemented using FastAPI, HTMX,
 
 Additionally, a fake fun facts generator has been integrated for a playful touch. Access it through the following links:
 
+- Home: http://localhost:8000
 - Full Load Fun Facts: http://localhost:8000/fun-fact-full-load
 - Partial Load Fun Facts: http://localhost:8000/fun-fact-partial-load
 
+![Home preview](screenshots/home_view.png)
 ![TODO App preview](screenshots/todo_app.png)
 ![TODO App preview](screenshots/funfact_app.png)
 
