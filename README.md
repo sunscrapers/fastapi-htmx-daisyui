@@ -107,4 +107,21 @@ Comprehensive performance tests have been crafted using the Locust tool for our 
 - perf_tests_partial:
   - Run a partial load tests by visiting http://localhost:8090/.
 
-Feel free to explore and modify the project to suit your needs!
+Commands:
+
+- `make perf-tests-full`
+- `make perf-tests-partial`
+
+### E2E tests
+
+To ensure the proper functioning of our application and validate the correct display of elements, we utilize Playwright to conduct E2E tests.
+
+Use the following commands to run E2E tests:
+
+- `make e2e-tests-build`: Build the Docker image for E2E tests.
+- `make e2e-tests-bash`: Run an interactive Bash shell inside the E2E test Docker container for manual testing.
+- `make e2e-tests`: Execute Playwright-based E2E tests using pytest.
+
+Before running the E2E tests, make sure to install dependencies and set up the testing environment. Also, ensure the application is running locally or on the specified base URL.
+
+_Feel free to explore and modify the project to suit your needs!_
