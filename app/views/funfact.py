@@ -43,7 +43,7 @@ async def fun_fact_full_load(
     result = await db_session.execute(select(func.count(FunFact.id)))
     fun_facts_count: int = result.fetchone()[0]
 
-    # Footer - Fake heavy calculations
+    # Footer - Fake waiting for external resources
     await asyncio.sleep(1)
 
     return templates.TemplateResponse(
@@ -89,7 +89,7 @@ async def fun_fact_partial_load_count(
 @router.get("/fun-fact-partial-load-footer", response_class=HTMLResponse)
 async def fun_fact_partial_load_footer(request: Request):
     logger.warning("Started partial load for footer")
-    # Footer - Fake heavy calculations
+    # Footer - Fake waiting for external resources
     await asyncio.sleep(1)
 
     return templates.TemplateResponse(
