@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="grid w-full place-items-center min-h-screen">
+  <div hx-boost="true" class="flex flex-col w-1/2 lg:flex-row">
+    <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">
+      <a
+        href="{{ request.url_for('todo_view') }}"
+        class="link link-hover link-neutral text-2xl font-medium"
+      >
+        Todo App
+      </a>
+    </div>
+    <div class="divider lg:divider-horizontal">OR</div>
+    <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">
+      <a
+        href="{{ request.url_for('fun_fact_partial_load') }}"
+        class="link link-hover link-neutral text-2xl font-medium"
+      >
+        Fun Facts
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,5 @@
+pytest==7.4.4
+pytest-playwright
+
+ipdb
+ipython

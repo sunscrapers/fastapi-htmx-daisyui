@@ -1,0 +1,19 @@
+<nav id="header" class="w-full z-30 top-0 py-1 lg:py-6">
+  <div class="navbar bg-base-100">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl">daisyUI</a>
+    </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1">
+        <span
+          hx-get="{{ request.url_for('fun_fact_partial_load_count') }}"
+          hx-swap="outerHTML"
+          hx-trigger="load"
+          class="loading loading-spinner loading-md"
+        ></span>
+        <li><a href="{{ request.url_for('fun_fact_full_load') }}">Full Load Page</a></li>
+        <li><a href="{{ request.url_for('fun_fact_partial_load') }}">Partial Load Page</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
